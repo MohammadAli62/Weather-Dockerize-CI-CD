@@ -38,7 +38,8 @@ jobs:
       - name: Run Tests
         id: test
         run: |
-          pytest > test_results.log || echo "Tests failed" > failed.log
+          pytest | tee test_results.log || echo "Tests failed" > failed.log
+
 
       - name: Upload Error Log (if enabled)
         if: ${{ github.event.inputs.enable_error_log == 'true' && failure() }}
