@@ -38,10 +38,10 @@ jobs:
       - name: Run Tests
         id: test
         run: |
-          pytest | tee test_results.log || echo "Tests failed" > failed.log
+          # Run pytest, show output in console, save to file
+          pytest | tee test_results.log
 
-
-      - name: Upload Error Log (if enabled)
+      - name: Upload Error Log (if enabled and tests failed)
         if: ${{ github.event.inputs.enable_error_log == 'true' && failure() }}
         uses: actions/upload-artifact@v4
         with:
