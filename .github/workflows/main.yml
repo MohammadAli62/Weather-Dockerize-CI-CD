@@ -1,4 +1,4 @@
-name: DevOps Pipeline - AWS Deployment
+name: DevOps Pipeline - Azure Deployment
 
 on:
   push:
